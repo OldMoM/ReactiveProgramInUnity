@@ -56,20 +56,30 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Examples\Player\PlayerInputData.cs" />
+    <Compile Include="Assets\Scripts\FalseDemonstration\NaivePlayerController.cs" />
+    <Compile Include="Assets\Scripts\Examples\Player\PlayerGameEventData.cs" />
     <Compile Include="Assets\Scripts\Examples\Player\PlayerComponents.cs" />
     <Compile Include="Assets\Scripts\Examples\Player\PlayerMovementModule.cs" />
     <Compile Include="Assets\Scripts\Examples\Player\PlayerBehaviorType.cs" />
     <Compile Include="Assets\Scripts\Examples\Player\PlayerGameEventSensor.cs" />
-    <Compile Include="Assets\Scripts\Examples\Player\PlayerInputModule.cs" />
+    <Compile Include="Assets\Scripts\Examples\Player\PlayerEventTranlatorModule.cs" />
     <Compile Include="Assets\Scripts\Examples\Game\Data.cs" />
     <Compile Include="Assets\Scripts\Examples\Player\PlayerSystem.cs" />
     <Compile Include="Assets\Scripts\Examples\Input\InputData.cs" />
     <Compile Include="Assets\Scripts\Examples\Player\PlayerMovementData.cs" />
-    <Compile Include="Assets\Scripts\Examples\Game\GameSystem.cs" />
-    <Compile Include="Assets\Scripts\Examples\Player\PlayerInputEvent.cs" />
+    <Compile Include="Assets\Scripts\Examples\Game\GameContext.cs" />
     <Compile Include="Assets\Scripts\Examples\Input\InputModule.cs" />
-    <Compile Include="Assets\Scripts\Examples\Player\PlayerDataTransformTable.cs" />
+    <Compile Include="Assets\Scripts\Examples\Game\TestData.cs" />
+    <Compile Include="Assets\Scripts\Examples\Player\PlayerDataTranslateTable.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\EnemyMovementData.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\EnemyAttackData.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\CrabData.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\PatrolData.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\CrabEventTranslatorData.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\EnemyPropertyData.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\EnemyGameEvent.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\EnemyBehaviorType.cs" />
+    <Compile Include="Assets\Scripts\Examples\Enemy\CrabEventTranslateTable.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Scripts\GameScripts.asmdef" />

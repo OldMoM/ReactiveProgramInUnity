@@ -16,7 +16,7 @@ public class PlayerInputEventTest
         var list1 = new List<PlayerBehaviorType>() { PlayerBehaviorType.SHOT, PlayerBehaviorType.RUN };
         var list2 = new List<PlayerBehaviorType>() { PlayerBehaviorType.RUN ,PlayerBehaviorType.SHOT};
 
-        var compareResult = PlayerInputModule.CompareList<PlayerBehaviorType>(list1, list2);
+        var compareResult = PlayerEventTranlatorModule.CompareList<PlayerBehaviorType>(list1, list2);
 
         Assert.IsTrue(compareResult);
 
@@ -28,7 +28,7 @@ public class PlayerInputEventTest
         var list1 = new List<PlayerBehaviorType>() { PlayerBehaviorType.SHOT, PlayerBehaviorType.RUN ,PlayerBehaviorType.DUCK};
         var list2 = new List<PlayerBehaviorType>() { PlayerBehaviorType.SHOT, PlayerBehaviorType.RUN };
 
-        var compareResult = PlayerInputModule.CompareList<PlayerBehaviorType>(list1, list2);
+        var compareResult = PlayerEventTranlatorModule.CompareList<PlayerBehaviorType>(list1, list2);
 
         Assert.IsFalse(compareResult);
 
@@ -37,7 +37,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator PressShotAndRunKey_GetShot_Run()
     {
-        PlayerInputModule.ProcessInputEvent(in Data.input, Data.playerInput);
+        PlayerEventTranlatorModule.ProcessInputEvent(in Data.input, Data.playerInput);
 
         Data.input.isShooting.Value = true;
         Data.input.horizentalFlag.Value = 1f;
@@ -46,7 +46,7 @@ public class PlayerInputEventTest
                                                         PlayerBehaviorType.SHOT,
                                                         PlayerBehaviorType.IDLE };
         var actual = Data.playerInput.eventReceiver;
-        var compareResult = PlayerInputModule.CompareList<PlayerBehaviorType>(expected, actual);
+        var compareResult = PlayerEventTranlatorModule.CompareList<PlayerBehaviorType>(expected, actual);
 
         Assert.IsTrue(compareResult);
         yield return null;
@@ -54,7 +54,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator OnShotAndRunKeyPressing_releaseShotKey_GetRun()
     {
-        PlayerInputModule.ProcessInputEvent(in Data.input, Data.playerInput);
+        PlayerEventTranlatorModule.ProcessInputEvent(in Data.input, Data.playerInput);
 
         Data.input.isShooting.Value = true;
         Data.input.horizentalFlag.Value = 1f;
@@ -72,7 +72,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator OnShotAndRunKeyPressing_OutRun_Shot_IDLE()
     {
-        PlayerInputModule.ProcessInputEvent(in Data.input, Data.playerInput);
+        PlayerEventTranlatorModule.ProcessInputEvent(in Data.input, Data.playerInput);
 
         Data.playerInput.onEventReceiverChanged
             .Skip(1)
@@ -97,7 +97,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator OnBehaviorEventGenertated_RunShot()
     {
-        PlayerInputModule.ProcessReceivedEvent(Data.playerInput);
+        PlayerEventTranlatorModule.ProcessReceivedEvent(Data.playerInput);
 
         Data.playerInput.onEventReceiverChanged.OnNext(new PlayerBehaviorType[] { PlayerBehaviorType.RUN, PlayerBehaviorType.SHOT, PlayerBehaviorType.IDLE });
 
@@ -110,7 +110,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator GetEvent_RunIdleIdle_Run()
     {
-        PlayerInputModule.ProcessReceivedEvent(Data.playerInput);
+        PlayerEventTranlatorModule.ProcessReceivedEvent(Data.playerInput);
 
         Data.playerInput.onEventReceiverChanged.OnNext(new PlayerBehaviorType[]
         {
@@ -128,7 +128,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator JumbBtnPressed_InputEventReceiver_Jump_Idle_Idle()
     {
-        PlayerInputModule.ProcessInputEvent(in Data.input, Data.playerInput);
+        PlayerEventTranlatorModule.ProcessInputEvent(in Data.input, Data.playerInput);
 
         Data.input.onJumpBtnPressed.OnNext(Unit.Default);
 
@@ -147,7 +147,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator Transfer_IdleIdleJump_To_JumpAndThenGrounded()
     {
-        PlayerInputModule.ProcessReceivedEvent(Data.playerInput);
+        PlayerEventTranlatorModule.ProcessReceivedEvent(Data.playerInput);
 
         Data.playerInput.onEventReceiverChanged.OnNext(new PlayerBehaviorType[]
         {
@@ -178,7 +178,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator CheckIllegalTransmition_JUMP_SHOT()
     {
-        PlayerInputModule.ChecklegalTransmition(Data.playerInput);
+        PlayerEventTranlatorModule.ChecklegalTransmition(Data.playerInput);
         Data.playerInput.behavior.Value = PlayerBehaviorType.JUMP_SHOT;
 
         Data.playerInput.legalBehaviorChecker.Value = new PlayerBehaviorType[]
@@ -196,7 +196,7 @@ public class PlayerInputEventTest
     [UnityTest]
     public IEnumerator CheckIllegalTransmition_RUN()
     {
-        PlayerInputModule.ChecklegalTransmition(Data.playerInput);
+        PlayerEventTranlatorModule.ChecklegalTransmition(Data.playerInput);
 
         Data.playerInput.legalBehaviorChecker.Value = new PlayerBehaviorType[]
         {

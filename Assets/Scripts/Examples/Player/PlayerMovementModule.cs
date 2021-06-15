@@ -8,7 +8,7 @@ namespace ExampleProject
 {
     public static class PlayerMovementModule
     {
-        public static void PlayerMove(InputData input, PlayerMovementData movement, PlayerInputData player)
+        public static void PlayerMove(InputData input, PlayerMovementData movement, PlayerGameEventData player)
         {
             player.behavior
                 .Where(x=>movement.enabled)
@@ -35,7 +35,7 @@ namespace ExampleProject
                     movement.face.Value = (int)x;
                 });
         }
-        public static void PlayerJump(InputData input,PlayerInputData player,PlayerMovementData movement,Rigidbody2D rigid)
+        public static void PlayerJump(InputData input,PlayerGameEventData player,PlayerMovementData movement,Rigidbody2D rigid)
         {
             player.behavior
                 .Where(x=> player.grounded.Value)

@@ -17,10 +17,10 @@ namespace ExampleProject
             PlayerComponents.TurnAround(Data.playerMovement, transform);
             PlayerComponents.PlayAnimationOnBehaviorChanged(Data.playerInput, GetComponentInChildren<Animator>());
 
-            PlayerInputModule.ProcessInputEvent(in Data.input, Data.playerInput);
-            PlayerInputModule.ProcessReceivedEvent(Data.playerInput);
-            PlayerInputModule.ChecklegalTransmition(Data.playerInput);
-            PlayerInputModule.OnBehaviorChanged(Data.input, Data.playerInput);
+            PlayerEventTranlatorModule.ProcessInputEvent(in Data.input, Data.playerInput);
+            PlayerEventTranlatorModule.ProcessReceivedEvent(Data.playerInput);
+            PlayerEventTranlatorModule.ChecklegalTransmition(Data.playerInput);
+            PlayerEventTranlatorModule.OnBehaviorChanged(Data.input, Data.playerInput);
 
             PlayerGameEventSensor.GroundSensor(GetComponent<CapsuleCollider2D>(), 
                                                Data.playerInput,

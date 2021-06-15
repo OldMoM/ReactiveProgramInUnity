@@ -60,12 +60,12 @@ namespace ExampleProject
         }
 
 
-        public static void PlayAnimationOnBehaviorChanged(PlayerInputData player, Animator animator)
+        public static void PlayAnimationOnBehaviorChanged(PlayerGameEventData player, Animator animator)
         {
             player.behavior
                 .Subscribe(x =>
                 {
-                    var animationName = PlayerDataTransformTable.behaviorAnimationTransTab[x];
+                    var animationName = PlayerDataTranslateTable.behaviorAnimationTransTab[x];
                     animator.Play(animationName);
                 });
         }

@@ -17,8 +17,8 @@ namespace ExampleProject
             velocity = new Vector2ReactiveProperty();
             enabled = true;
             speed = 5;
-            groundDetectSensitivity = 0.7f;
-            jumpForce = 300;
+            groundDetectSensitivity = 0.35f;
+            jumpForce = 400;
         }
     }
 }

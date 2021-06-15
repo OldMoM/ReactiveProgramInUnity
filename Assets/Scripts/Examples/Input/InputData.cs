@@ -8,17 +8,14 @@ namespace ExampleProject
     public class InputData
     {
         public FloatReactiveProperty horizentalFlag;
-        //public BoolReactiveProperty isRising;
+        public FloatReactiveProperty verticalFlag;
         public BoolReactiveProperty isShooting;
-        //public BoolReactiveProperty isDucking;
         public Subject<Unit> onJumpBtnPressed;
 
-        public FloatReactiveProperty verticalFlag;
-        public InputData(Unit unit)
+        public InputData()
         {
             horizentalFlag = new FloatReactiveProperty();
             onJumpBtnPressed = new Subject<Unit>();
-
             isShooting = new BoolReactiveProperty(false);
             verticalFlag = new FloatReactiveProperty();
         }

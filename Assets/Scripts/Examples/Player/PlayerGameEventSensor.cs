@@ -9,7 +9,7 @@ namespace ExampleProject
 {
     public static class PlayerGameEventSensor
     {
-        public static void GroundSensor(CapsuleCollider2D playerCapsule,PlayerInputData player,Rigidbody2D rigid,PlayerMovementData movement)
+        public static void GroundSensor(CapsuleCollider2D playerCapsule,PlayerGameEventData player,Rigidbody2D rigid,PlayerMovementData movement)
         {
             Observable.EveryLateUpdate()
                 .SubscribeOn(Scheduler.MainThreadEndOfFrame)
